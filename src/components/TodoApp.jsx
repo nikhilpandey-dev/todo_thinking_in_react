@@ -50,7 +50,6 @@ function TodoApp({ tasks }) {
             onChange={() => handleCompleteTask(task.id)}
           />
           <span className="task-details">{task.name}</span>
-          <button className="delete-button" onClick={() => handleDeleteTask(task.id)}>Delete</button>
         </div>
       ));
   };
