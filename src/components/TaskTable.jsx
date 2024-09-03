@@ -10,7 +10,7 @@ function TaskTable({ tasks, onDeleteTask }) {
   // Sort tasks by category to ensure they are grouped together
   const sortedTasks = [...tasks].sort((a, b) => a.category.localeCompare(b.category));
 
-  sortedTasks.forEach((task, index) => {
+  sortedTasks.forEach((task) => {
     if (task.category !== lastCategory) {
       rows.push(
         <TaskCategoryRow
@@ -21,9 +21,9 @@ function TaskTable({ tasks, onDeleteTask }) {
     }
     rows.push(
       <TaskRow
-        task={task.name}
-        key={task.name}
-        onDelete={() => onDeleteTask(index)}
+        task={task}
+        key={task.id}
+        onDelete={() => onDeleteTask(task.id)}
       />
     );
     lastCategory = task.category;

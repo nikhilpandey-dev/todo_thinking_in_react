@@ -7,12 +7,12 @@ function TodoApp({ tasks }) {
   const [taskList, setTaskList] = useState(tasks);
 
   const handleAddTask = (taskName, taskCategory) => {
-    const newTask = { category: taskCategory, name: taskName };
+    const newTask = { id: Date.now(), category: taskCategory, name: taskName };
     setTaskList((prevTasks) => [...prevTasks, newTask]);
   };
 
-  const handleDeleteTask = (taskIndex) => {
-    setTaskList((prevTasks) => prevTasks.filter((_, index) => index !== taskIndex));
+  const handleDeleteTask = (taskId) => {
+    setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
   return (
