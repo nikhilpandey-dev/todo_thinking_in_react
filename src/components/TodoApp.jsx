@@ -18,8 +18,10 @@ function TodoApp({ tasks }) {
 
   const handleCompleteTask = (taskId) => {
     const taskToComplete = taskList.find((task) => task.id === taskId);
-    setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-    setCompletedTasks((prevTasks) => [...prevTasks, taskToComplete]);
+    if (taskToComplete) {
+      setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+      setCompletedTasks((prevTasks) => [...prevTasks, taskToComplete]);
+    }
   };
 
   return (
