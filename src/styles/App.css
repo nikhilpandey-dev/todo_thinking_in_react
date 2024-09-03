@@ -318,3 +318,11 @@ input:checked + .slider:before {
 .category-other {
   color: #32cd32; /* Lime Green */
 }
+/* Existing styles... */
+
+/* Superscript for category */
+.task-category-sup {
+  font-size: 0.7em;
+  vertical-align: super;
+  color: #888; /* Light gray color for the category */
+}

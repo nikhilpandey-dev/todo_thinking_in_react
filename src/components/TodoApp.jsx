@@ -49,7 +49,10 @@ function TodoApp({ tasks }) {
             checked={completedTasks.some((completedTask) => completedTask.id === task.id)}
             onChange={() => handleCompleteTask(task.id)}
           />
-          <span className="task-details">{task.name}</span>
+          <span className="task-details">
+            {task.name}
+            <sup className="task-category-sup">{task.category}</sup>
+          </span>
         </div>
       ));
   };
