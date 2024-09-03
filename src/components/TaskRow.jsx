@@ -4,9 +4,10 @@ import '../styles/App.css';
 function TaskRow({ task, onDelete }) {
   return (
     <tr className="task-row">
-      <td>{task}</td>
       <td>
-        <button onClick={onDelete} className="delete-button">Delete</button>
+        {task}
+        {/*<!-- Moved inside the same cell -->  */}
+        <button onClick={onDelete} className="delete-button">Delete</button> 
       </td>
     </tr>
   );
