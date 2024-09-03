@@ -3,7 +3,7 @@ import TaskCategoryRow from './TaskCategoryRow';
 import TaskRow from './TaskRow';
 import '../styles/App.css';
 
-function TaskTable({ tasks, onCompleteTask, isCompleted }) {
+function TaskTable({ tasks, onDeleteTask, onCompleteTask, isCompleted }) {
   const rows = [];
   let lastCategory = null;
 
@@ -23,6 +23,7 @@ function TaskTable({ tasks, onCompleteTask, isCompleted }) {
       <TaskRow
         task={task}
         key={task.id}
+        onDelete={() => onDeleteTask(task.id)}
         onComplete={() => onCompleteTask(task.id)}
         isCompleted={isCompleted}
       />

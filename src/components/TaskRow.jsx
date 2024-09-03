@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/App.css';
 
-function TaskRow({ task, onComplete, isCompleted }) {
+function TaskRow({ task, onDelete, onComplete, isCompleted }) {
   return (
     <tr className="task-row">
       <td className={isCompleted ? 'completed-task' : ''}>
@@ -12,6 +12,7 @@ function TaskRow({ task, onComplete, isCompleted }) {
           className="complete-checkbox"
         />
         {task.name}
+        <button onClick={onDelete} className="delete-button">Delete</button>
       </td>
     </tr>
   );

@@ -12,6 +12,11 @@ function TodoApp({ tasks }) {
     setTaskList((prevTasks) => [...prevTasks, newTask]);
   };
 
+  const handleDeleteTask = (taskId) => {
+    setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    setCompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
+
   const handleCompleteTask = (taskId) => {
     const taskToComplete = taskList.find((task) => task.id === taskId);
     if (taskToComplete) {
@@ -30,9 +35,9 @@ function TodoApp({ tasks }) {
     <div className="todo-app">
       <AddTask onAddTask={handleAddTask} />
       <h2>Tasks</h2>
-      <TaskTable tasks={taskList} onCompleteTask={handleCompleteTask} isCompleted={false} />
+      <TaskTable tasks={taskList} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} isCompleted={false} />
       <h2>Completed Tasks</h2>
-      <TaskTable tasks={completedTasks} onCompleteTask={handleCompleteTask} isCompleted={true} />
+      <TaskTable tasks={completedTasks} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} isCompleted={true} />
     </div>
   );
 }
