@@ -3,14 +3,14 @@ import TaskCategoryRow from './TaskCategoryRow';
 import TaskRow from './TaskRow';
 import '../styles/App.css';
 
-function TaskTable({ tasks }) {
+function TaskTable({ tasks, onDeleteTask }) {
   const rows = [];
   let lastCategory = null;
 
   // Sort tasks by category to ensure they are grouped together
   const sortedTasks = [...tasks].sort((a, b) => a.category.localeCompare(b.category));
 
-  sortedTasks.forEach((task) => {
+  sortedTasks.forEach((task, index) => {
     if (task.category !== lastCategory) {
       rows.push(
         <TaskCategoryRow
@@ -23,6 +23,7 @@ function TaskTable({ tasks }) {
       <TaskRow
         task={task.name}
         key={task.name}
+        onDelete={() => onDeleteTask(index)}
       />
     );
     lastCategory = task.category;

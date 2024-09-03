@@ -11,10 +11,14 @@ function TodoApp({ tasks }) {
     setTaskList((prevTasks) => [...prevTasks, newTask]);
   };
 
+  const handleDeleteTask = (taskIndex) => {
+    setTaskList((prevTasks) => prevTasks.filter((_, index) => index !== taskIndex));
+  };
+
   return (
     <div className="todo-app">
       <AddTask onAddTask={handleAddTask} />
-      <TaskTable tasks={taskList} />
+      <TaskTable tasks={taskList} onDeleteTask={handleDeleteTask} />
     </div>
   );
 }

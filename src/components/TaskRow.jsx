@@ -1,10 +1,13 @@
 import React from 'react';
 import '../styles/App.css';
 
-function TaskRow({ task }) {
+function TaskRow({ task, onDelete }) {
   return (
-    <tr>
-      <td className="task-row">{task}</td>
+    <tr className="task-row">
+      <td>{task}</td>
+      <td>
+        <button onClick={onDelete} className="delete-button">Delete</button>
+      </td>
     </tr>
   );
 }

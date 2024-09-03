@@ -1,53 +1,79 @@
 /* Victorian-era inspired color scheme */
 body {
-    background-color: #f5f5dc; /* Beige */
-    color: #4b2e83; /* Dark Purple */
-    font-family: 'Times New Roman', Times, serif;
-  }
-  
-  .todo-app {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #4b2e83;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  .add-task-form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .task-input, .task-select, .add-button {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #4b2e83;
-    border-radius: 5px;
-  }
-  
-  .add-button {
-    background-color: #4b2e83;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #3a226b;
-  }
-  
-  .task-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .task-table th, .task-table td {
-    border: 1px solid #4b2e83;
-    padding: 10px;
-    text-align: left;
-  }
-  
-  .category-row {
-    background-color: #e0d4b0; /* Light Beige */
-    font-weight: bold;
+  background-color: #f5f5dc; /* Beige */
+  color: #4b2e83; /* Dark Purple */
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.todo-app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #4b2e83;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.add-task-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.task-input, .task-select, .add-button {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #4b2e83;
+  border-radius: 5px;
+}
+
+.add-button {
+  background-color: #4b2e83;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #3a226b;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+  border: 1px solid #4b2e83;
+  padding: 10px;
+  text-align: left;
+}
+
+.category-row {
+  background-color: #e0d4b0; /* Light Beige */
+  font-weight: bold;
+}
+
+.task-row {
+  background-color: #f5f5dc; /* Beige */
+  position: relative;
+}
+
+.delete-button {
+  background-color: #d9534f; /* Bootstrap Red */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: none; /* Hide by default */
+  position: absolute;
+  right: 10px;
+}
+
+.task-row:hover .delete-button {
+  display: inline-block; /* Show on hover */
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}
