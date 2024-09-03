@@ -43,7 +43,14 @@ function TodoApp({ tasks }) {
       .filter((task) => task.eisenhowerLabel === label)
       .map((task) => (
         <div key={task.id} className={`eisenhower-task category-${task.category.toLowerCase()}`}>
-          {task.name}
+          <input
+            type="checkbox"
+            className="complete-checkbox"
+            checked={completedTasks.some((completedTask) => completedTask.id === task.id)}
+            onChange={() => handleCompleteTask(task.id)}
+          />
+          <span className="task-details">{task.name}</span>
+          <button className="delete-button" onClick={() => handleDeleteTask(task.id)}>Delete</button>
         </div>
       ));
   };

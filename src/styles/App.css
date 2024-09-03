@@ -243,3 +243,74 @@ input:checked + .slider:before {
 .category-other {
   color: #32cd32; /* Lime Green */
 }
+
+/* Existing styles... */
+
+/* Eisenhower Matrix */
+.eisenhower-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.eisenhower-cell {
+  border: 1px solid #4b2e83;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.eisenhower-cell h3 {
+  margin-top: 0;
+  color: #4b2e83;
+}
+
+.eisenhower-task {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eisenhower-task .task-details {
+  flex-grow: 1;
+}
+
+.eisenhower-task .delete-button {
+  background-color: #d9534f; /* Bootstrap Red */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.eisenhower-task .delete-button:hover {
+  background-color: #c9302c;
+}
+
+.eisenhower-task .complete-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Unique Colors for Categories */
+.category-work {
+  color: #ff6347; /* Tomato */
+}
+
+.category-personal {
+  color: #4682b4; /* Steel Blue */
+}
+
+.category-urgent {
+  color: #ff4500; /* Orange Red */
+}
+
+.category-other {
+  color: #32cd32; /* Lime Green */
+}
+
