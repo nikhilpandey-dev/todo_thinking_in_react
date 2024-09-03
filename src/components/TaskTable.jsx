@@ -7,7 +7,10 @@ function TaskTable({ tasks }) {
   const rows = [];
   let lastCategory = null;
 
-  tasks.forEach((task) => {
+  // Sort tasks by category to ensure they are grouped together
+  const sortedTasks = [...tasks].sort((a, b) => a.category.localeCompare(b.category));
+
+  sortedTasks.forEach((task) => {
     if (task.category !== lastCategory) {
       rows.push(
         <TaskCategoryRow
