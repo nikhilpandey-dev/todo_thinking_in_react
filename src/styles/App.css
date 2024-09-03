@@ -286,6 +286,7 @@ input:checked + .slider:before {
   cursor: pointer;
   border-radius: 5px;
   margin-left: 10px;
+  display: inline-block; /* Ensure the button is always visible */
 }
 
 .eisenhower-task .delete-button:hover {
@@ -313,4 +314,3 @@ input:checked + .slider:before {
 .category-other {
   color: #32cd32; /* Lime Green */
 }
-
