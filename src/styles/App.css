@@ -286,7 +286,11 @@ input:checked + .slider:before {
   cursor: pointer;
   border-radius: 5px;
   margin-left: 10px;
-  display: inline-block; /* Ensure the button is always visible */
+  display: none; /* Hide the button by default */
+}
+
+.eisenhower-task:hover .delete-button {
+  display: inline-block; /* Show the button on hover */
 }
 
 .eisenhower-task .delete-button:hover {
