@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/App.css';
 
 function TaskRow({ task, onDelete, onComplete, isCompleted }) {
+  const [isFlying, setIsFlying] = useState(false);
+
+  const handleComplete = () => {
+    setIsFlying(true);
+    setTimeout(() => {
+      onComplete();
+      setIsFlying(false);
+    }, 500); // Match the duration of the CSS animation
+  };
+
   return (
-    <tr className="task-row">
+    <tr className={`task-row ${isFlying ? 'fly' : ''}`}>
       <td className={isCompleted ? 'completed-task' : ''}>
         <input
           type="checkbox"
           checked={isCompleted}
-          onChange={onComplete}
+          onChange={handleComplete}
           className="complete-checkbox"
         />
         {task.name}

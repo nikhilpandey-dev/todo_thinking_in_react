@@ -12,6 +12,27 @@ body {
   border: 1px solid #4b2e83;
   border-radius: 10px;
   background-color: #fff;
+  background-image: linear-gradient(to bottom, #f5f5dc 50px, transparent 50px);
+  background-size: 100% 50px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    #4b2e83,
+    #4b2e83 2px,
+    transparent 2px,
+    transparent 20px
+  );
+  border-right: 2px solid #4b2e83;
 }
 
 .add-task-form {
@@ -43,9 +64,10 @@ body {
 }
 
 .task-table th, .task-table td {
-  border: 1px solid #4b2e83;
+  border: 1px dotted #4b2e83; /* Dotted border */
   padding: 10px;
   text-align: left;
+  background-color: #f5f5dc; /* Beige */
 }
 
 .category-row {
@@ -56,6 +78,13 @@ body {
 .task-row {
   background-color: #f5f5dc; /* Beige */
   position: relative;
+  font-family: 'Indie Flower', cursive; /* Handwritten font */
+  font-size: 18px;
+  transition: transform 0.5s ease-in-out; /* Animation */
+}
+
+.task-row.fly {
+  transform: translateX(100%); /* Fly to the right */
 }
 
 .delete-button {
