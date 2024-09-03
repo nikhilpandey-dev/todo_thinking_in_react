@@ -21,7 +21,7 @@ function TaskRow({ task, onDelete, onComplete, isCompleted }) {
           onChange={handleComplete}
           className="complete-checkbox"
         />
-        {task.name}
+        {task.name} - <span className="eisenhower-label">{task.eisenhowerLabel}</span>
         <button onClick={onDelete} className="delete-button">Delete</button>
       </td>
     </tr>

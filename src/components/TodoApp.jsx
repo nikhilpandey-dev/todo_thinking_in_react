@@ -8,9 +8,10 @@ function TodoApp({ tasks }) {
   const [taskList, setTaskList] = useState(tasks);
   const [completedTasks, setCompletedTasks] = useState([]);
   const [showCompletedTasks, setShowCompletedTasks] = useState(true);
+  const [activeTab, setActiveTab] = useState('classic');
 
-  const handleAddTask = (taskName, taskCategory) => {
-    const newTask = { id: Date.now(), category: taskCategory, name: taskName };
+  const handleAddTask = (taskName, taskCategory, eisenhowerLabel) => {
+    const newTask = { id: Date.now(), category: taskCategory, name: taskName, eisenhowerLabel };
     setTaskList((prevTasks) => [...prevTasks, newTask]);
   };
 
@@ -37,11 +38,58 @@ function TodoApp({ tasks }) {
     setShowCompletedTasks((prevShow) => !prevShow);
   };
 
+  const renderTasksByLabel = (label) => {
+    return taskList
+      .filter((task) => task.eisenhowerLabel === label)
+      .map((task) => (
+        <div key={task.id} className={`eisenhower-task category-${task.category.toLowerCase()}`}>
+          {task.name}
+        </div>
+      ));
+  };
+
   return (
     <div className="todo-app">
       <AddTask onAddTask={handleAddTask} />
-      <h2>Tasks</h2>
-      <TaskTable tasks={taskList} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} isCompleted={false} />
+      <div className="tabs">
+        <div className={`tab ${activeTab === 'classic' ? 'active' : ''}`} onClick={() => setActiveTab('classic')}>
+          Classic
+        </div>
+        <div className={`tab ${activeTab === 'eisenhower' ? 'active' : ''}`} onClick={() => setActiveTab('eisenhower')}>
+          Eisenhower
+        </div>
+      </div>
+      <div className="tab-content">
+        {activeTab === 'classic' && (
+          <>
+            <h2>Tasks</h2>
+            <TaskTable tasks={taskList} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} />
+          </>
+        )}
+        {activeTab === 'eisenhower' && (
+          <>
+            <h2>Eisenhower Matrix</h2>
+            <div className="eisenhower-matrix">
+              <div className="eisenhower-cell">
+                <h3>Urgent & Important</h3>
+                {renderTasksByLabel('Urgent & Important')}
+              </div>
+              <div className="eisenhower-cell">
+                <h3>Not Urgent & Important</h3>
+                {renderTasksByLabel('Not Urgent & Important')}
+              </div>
+              <div className="eisenhower-cell">
+                <h3>Urgent & Not Important</h3>
+                {renderTasksByLabel('Urgent & Not Important')}
+              </div>
+              <div className="eisenhower-cell">
+                <h3>Not Urgent & Not Important</h3>
+                {renderTasksByLabel('Not Urgent & Not Important')}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
       <h2>Show Completed Tasks</h2>
       <ToggleSwitch isChecked={showCompletedTasks} onToggle={handleToggleShowCompletedTasks} />
       {showCompletedTasks && (
