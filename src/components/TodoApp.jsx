@@ -12,15 +12,17 @@ function TodoApp({ tasks }) {
     setTaskList((prevTasks) => [...prevTasks, newTask]);
   };
 
-  const handleDeleteTask = (taskId) => {
-    setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-  };
-
   const handleCompleteTask = (taskId) => {
     const taskToComplete = taskList.find((task) => task.id === taskId);
     if (taskToComplete) {
       setTaskList((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
       setCompletedTasks((prevTasks) => [...prevTasks, taskToComplete]);
+    } else {
+      const taskToUncomplete = completedTasks.find((task) => task.id === taskId);
+      if (taskToUncomplete) {
+        setCompletedTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+        setTaskList((prevTasks) => [...prevTasks, taskToUncomplete]);
+      }
     }
   };
 
@@ -28,9 +30,9 @@ function TodoApp({ tasks }) {
     <div className="todo-app">
       <AddTask onAddTask={handleAddTask} />
       <h2>Tasks</h2>
-      <TaskTable tasks={taskList} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} />
+      <TaskTable tasks={taskList} onCompleteTask={handleCompleteTask} isCompleted={false} />
       <h2>Completed Tasks</h2>
-      <TaskTable tasks={completedTasks} onDeleteTask={handleDeleteTask} onCompleteTask={() => {}} />
+      <TaskTable tasks={completedTasks} onCompleteTask={handleCompleteTask} isCompleted={true} />
     </div>
   );
 }

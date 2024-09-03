@@ -58,26 +58,12 @@ body {
   position: relative;
 }
 
-.delete-button {
-  background-color: #d9534f; /* Bootstrap Red */
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  display: none; /* Hide by default */
-  position: absolute;
-  right: 10px;
-}
-
-.task-row:hover .delete-button {
-  display: inline-block; /* Show on hover */
-}
-
-.delete-button:hover {
-  background-color: #c9302c;
-}
-
 .complete-checkbox {
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.completed-task {
+  text-decoration: line-through;
+  color: #888;
 }
