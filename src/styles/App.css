@@ -77,3 +77,7 @@ body {
 .delete-button:hover {
   background-color: #c9302c;
 }
+
+.complete-checkbox {
+  margin-right: 10px;
+}
